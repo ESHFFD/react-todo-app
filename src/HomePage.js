@@ -4,9 +4,9 @@ const HomePage = () => {
   //   const [name, setName] = useState("Mario");
   //   const [age, setAge] = useState(15);
   const [blogs, setBlogs] = useState([
-    { title: "First blog", author: "Author 1", id: 1 },
-    { title: "Second blog", author: "Author 2", id: 2 },
-    { title: "Third blog", author: "Author 3", id: 3 },
+    { title: "First blog", author: "mario", id: 1 },
+    { title: "Second blog", author: "yoshi", id: 2 },
+    { title: "Third blog", author: "mario", id: 3 },
   ]);
   //   const handelClick = () => {
   //     setName("Ehsan");
@@ -18,6 +18,10 @@ const HomePage = () => {
   return (
     <div className="home">
       <BlogList blogs={blogs} title="All Blogs!" />
+      <BlogList
+        blogs={blogs.filter((blog) => blog.author === "mario")}
+        title="Mario's Blogs!"
+      />
       {/* <p>
         {name} is {age} years old{" "}
       </p>
