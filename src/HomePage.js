@@ -15,13 +15,19 @@ const HomePage = () => {
   //   const handelClickedAgain = (name) => {
   //     console.log("hello" + name);
   //   };
+
+  const handelDelete = (id) => {
+    const newBlog = blogs.filter((blog) => blog.id !== id);
+    setBlogs(newBlog);
+  };
+
   return (
     <div className="home">
-      <BlogList blogs={blogs} title="All Blogs!" />
-      <BlogList
+      <BlogList blogs={blogs} title="All Blogs!" handelDelete={handelDelete} />
+      {/* <BlogList
         blogs={blogs.filter((blog) => blog.author === "mario")}
         title="Mario's Blogs!"
-      />
+      /> */}
       {/* <p>
         {name} is {age} years old{" "}
       </p>
