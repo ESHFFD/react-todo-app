@@ -53,3 +53,11 @@
 .blog-preview a {
   text-decoration: none;
 }
+.singel-blog h2 {
+  margin-bottom: 20px;
+  font-size: 20px;
+}
+.singel-blog div {
+  margin: 20px 0 ;
+  text-align: justify;
+}
