@@ -6,6 +6,7 @@ const useFetch = (url) => {
   const [error, setError] = useState(null);
   useEffect(() => {
     // using abort controller to handel custom hook error while we chnage screen fast!!!!!
+    //have to create this variable of this controller in useEffect function to prevent rerender in that list !!!!!
     const abortCon = new AbortController();
     setTimeout(() => {
       fetch(url, { signal: abortCon.signal })

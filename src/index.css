@@ -49,3 +49,7 @@
 .blog-list span {
   font-size: 24px;
 }
+
+.blog-preview a {
+  text-decoration: none;
+}

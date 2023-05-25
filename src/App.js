@@ -4,6 +4,7 @@ import Navbar from "./Navbar";
 import HomePage from "./HomePage";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Create from "./Create";
+import SingelBlog from "./SingelBlog";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/create" element={<Create />} />
+            <Route path="/blogs/:id" element={<SingelBlog />} />
           </Routes>
         </div>
       </div>
