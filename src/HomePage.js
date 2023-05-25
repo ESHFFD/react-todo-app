@@ -1,11 +1,14 @@
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 import BlogList from "./BlogList";
+import useFetch from "./useFetch";
 const HomePage = () => {
+  const {
+    data: blogs,
+    isPending,
+    error,
+  } = useFetch("http://localhost:8000/blogs");
   //   const [name, setName] = useState("Mario");
   //   const [age, setAge] = useState(15);
-  const [blogs, setBlogs] = useState(null);
-  const [isPending, setIsPednding] = useState(true);
-  const [error, setError] = useState(null);
 
   //   const handelClick = () => {
   //     setName("Ehsan");
@@ -20,33 +23,10 @@ const HomePage = () => {
   //   setBlogs(newBlog);
   // };
 
-  useEffect(() => {
-    setTimeout(() => {
-      fetch("http://localhost:8000/blogss")
-        .then((res) => {
-          if (!res.ok) {
-            throw Error("Could not fetch data from this url");
-          }
-          console.log(res);
-          res.json();
-        })
-        .then((data) => {
-          console.log(data);
-          setBlogs(data);
-          setIsPednding(false);
-          setError(null);
-        })
-        .catch((err) => {
-          setIsPednding(false);
-          setError(err.message);
-        });
-    }, 1000);
-  }, []);
-
   return (
     <div className="home">
       {error && <div>{error}</div>}
-      {isPending && <h2>...Is Loading...</h2>}
+      {isPending && <div>...Is Loading...</div>}
       {blogs && <BlogList blogs={blogs} title="All Blogs!" />}
       {/* <BlogList
         blogs={blogs.filter((blog) => blog.author === "mario")}
