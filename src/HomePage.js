@@ -5,6 +5,8 @@ const HomePage = () => {
   //   const [age, setAge] = useState(15);
   const [blogs, setBlogs] = useState(null);
   const [isPending, setIsPednding] = useState(true);
+  const [error, setError] = useState(null);
+
   //   const handelClick = () => {
   //     setName("Ehsan");
   //     setAge(27);
@@ -20,18 +22,30 @@ const HomePage = () => {
 
   useEffect(() => {
     setTimeout(() => {
-      fetch("http://localhost:8000/blogs")
-        .then((res) => res.json())
+      fetch("http://localhost:8000/blogss")
+        .then((res) => {
+          if (!res.ok) {
+            throw Error("Could not fetch data from this url");
+          }
+          console.log(res);
+          res.json();
+        })
         .then((data) => {
           console.log(data);
           setBlogs(data);
           setIsPednding(false);
+          setError(null);
+        })
+        .catch((err) => {
+          setIsPednding(false);
+          setError(err.message);
         });
     }, 1000);
   }, []);
 
   return (
     <div className="home">
+      {error && <div>{error}</div>}
       {isPending && <h2>...Is Loading...</h2>}
       {blogs && <BlogList blogs={blogs} title="All Blogs!" />}
       {/* <BlogList
