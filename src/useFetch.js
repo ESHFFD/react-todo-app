@@ -5,8 +5,10 @@ const useFetch = (url) => {
   const [isPending, setIsPednding] = useState(true);
   const [error, setError] = useState(null);
   useEffect(() => {
+    // using abort controller to handel custom hook error while we chnage screen fast!!!!!
+    const abortCon = new AbortController();
     setTimeout(() => {
-      fetch(url)
+      fetch(url, { signal: abortCon.signal })
         .then((res) => {
           if (!res.ok) {
             throw Error("Could not fetch data from this url");
@@ -22,11 +24,15 @@ const useFetch = (url) => {
           setError(null);
         })
         .catch((err) => {
-          setIsPednding(false);
-          setError(err.message);
+          if (err.name === "AbortError") {
+            console.log("fetch abort");
+          } else {
+            setIsPednding(false);
+            setError(err.message);
+          }
         });
     }, 1000);
-    return console.log("mess");
+    return () => abortCon.abort();
   }, [url]);
   return { data, isPending, error };
 };
