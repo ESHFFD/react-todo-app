@@ -3,6 +3,7 @@
 import Navbar from "./Navbar";
 import HomePage from "./HomePage";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Create from "./Create";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <div className="content">
           <Routes>
             <Route path="/" element={<HomePage />} />
+            <Route path="/create" element={<Create />} />
           </Routes>
         </div>
       </div>
