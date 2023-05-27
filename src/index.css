@@ -54,6 +54,7 @@
   text-decoration: none;
 }
 .singel-blog h2 {
+  color: #f1356d;
   margin-bottom: 20px;
   font-size: 20px;
 }
@@ -61,3 +62,34 @@
   margin: 20px 0 ;
   text-align: justify;
 }
+
+/* create: */
+ .create { 
+  
+  max-width: 400px;
+  margin: 0 auto;
+  text-align: center;
+ }
+ .create lable {
+  display: block;
+  text-align: left;
+ }
+ .create h2 {
+  font-size: 20px;
+  color: #f1356d;
+ }
+ .create input , .create textarea, .create select {
+  display: block;
+  width: 100%;
+  margin: 10px 0;
+  padding: 6px 10px;
+  box-sizing: border-box;
+  border: 1px solid #ddd;
+ }
+ .create button { 
+  background: #f1356d;
+  color: #fff;
+  border: 0;
+  padding: 8px;
+  cursor: pointer;
+ }

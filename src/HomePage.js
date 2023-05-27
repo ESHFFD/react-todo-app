@@ -6,7 +6,7 @@ const HomePage = () => {
     data: blogs,
     isPending,
     error,
-  } = useFetch("http://localhost:8000/blogs");
+  } = useFetch("http://localhost:7000/blogs");
   //   const [name, setName] = useState("Mario");
   //   const [age, setAge] = useState(15);
 
