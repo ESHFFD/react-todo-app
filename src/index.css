@@ -62,6 +62,13 @@
   margin: 20px 0 ;
   text-align: justify;
 }
+.singel-blog button {
+  padding: 8px;
+  color: #fff;
+  background-color: #f1356d;
+  border: none;
+  border-radius: 8px;
+}
 
 /* create: */
  .create { 
