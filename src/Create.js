@@ -1,11 +1,12 @@
 import { useState } from "react";
-// import { json } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Create = () => {
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
   const [author, setAurtor] = useState("mario");
   const [isPending, setIsPednding] = useState(false);
+  const navigate = useNavigate();
 
   const handelSubmit = (e) => {
     e.preventDefault();
@@ -23,6 +24,7 @@ const Create = () => {
       .then(() => {
         console.log("new blog added");
         setIsPednding(false);
+        navigate("/");
       })
       .catch((err) => {
         console.log(err.message);
